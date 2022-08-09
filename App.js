@@ -1,5 +1,5 @@
-import Home from './screens/Home';
 import { useFonts } from 'expo-font';
+import Navigator from './routes/HomeStack';
 
 export default function App() {
   const [loaded] = useFonts({
@@ -10,5 +10,5 @@ export default function App() {
     return null;
   }
 
-  return <Home />;
+  return <Navigator />;
 }

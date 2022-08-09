@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { globalStyles } from '../styles/global';
+import { View, Text } from 'react-native';
+import { globalStyles } from '../styles/Global';
 
 export default function About() {
   return (
@@ -9,5 +9,3 @@ export default function About() {
     </View>
   );
 }
-
-c;
