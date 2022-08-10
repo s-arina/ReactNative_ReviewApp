@@ -15,8 +15,26 @@
 
 - npm install @react-navigation/native @react-navigation/native-stack
 - expo install react-native-screens react-native-safe-area-context
-- <NavigationContainer> -> <homeStack.Navigator> -> <homeStack.Screen>
+- <NavigationContainer> -> <Stack.Navigator> -> <Stack.Screen>
 
 - FlatList > renderItem > onPress gets passed `navigation.navigate('screenname', item)` to pass on respective state/data
 - import `{ route }` prop for parameters
 - `route.params.title`, `route.params.body`, etc
+
+### Drawer Navigation
+
+- expo install @react-navigation/drawer
+- expo install react-native-gesture-handler react-native-reanimated
+- import `react-native-gesture-handler` to App.js (opt?)
+- update babel.config.js: (opt?)
+
+  module.exports = {
+  presets: ["module:metro-react-native-babel-preset"],
+  plugins: [
+  "react-native-reanimated/plugin",
+  ],
+  };
+
+- expo r -c
+
+- <NavigationContainer> -> <Drawer.Navigator> -> <Drawer.Screen> (the screen can be a nested stack)

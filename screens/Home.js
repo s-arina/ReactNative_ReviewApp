@@ -4,6 +4,8 @@ import { globalStyles } from '../styles/Global';
 
 export default function Home({ navigation }) {
   // destruct navigation prop
+
+  // press to navigate function example
   const pressHandler = () => {
     navigation.navigate('Review Details');
     // navigation.push('Review Details')

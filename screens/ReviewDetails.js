@@ -4,6 +4,7 @@ import { globalStyles } from '../styles/Global';
 
 export default function ReviewDetails({ route }) {
   const item = route.params;
+  // import parameters with route
   return (
     <View style={globalStyles.container}>
       <Text>{item.title}</Text>
