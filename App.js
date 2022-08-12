@@ -29,7 +29,7 @@ export default function App() {
       <Drawer.Navigator initialRouteName='GameZone'>
         <Drawer.Screen name='GameZone' component={HomeStack} />
         {/* stacks can be nested within the drawer */}
-        <Drawer.Screen name='About' component={About} />
+        <Drawer.Screen name='About GameZone' component={About} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
+import Header from '../shared/Header';
 
 // react navigation imports
 // import { NavigationContainer } from '@react-navigation/native';
@@ -26,7 +27,11 @@ export default function HomeStack() {
         headerStyle: { backgroundColor: '#eee' },
       }}
     >
-      <Stack.Screen name='Home' component={Home} />
+      <Stack.Screen
+        name='Home'
+        component={Home}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen name='Review Details' component={ReviewDetails} />
     </Stack.Navigator>
   );

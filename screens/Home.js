@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Button, FlatList, TouchableOpacity } from 'react-native';
 import { globalStyles } from '../styles/Global';
+import Card from '../shared/Card';
 
 export default function Home({ navigation }) {
   // destruct navigation prop
@@ -44,7 +45,9 @@ export default function Home({ navigation }) {
           <TouchableOpacity
             onPress={() => navigation.navigate('Review Details', item)} // navigate to details page while passing in the items info
           >
-            <Text style={globalStyles.title}>{item.title}</Text>
+            <Card>
+              <Text style={globalStyles.title}>{item.title}</Text>
+            </Card>
           </TouchableOpacity>
         )}
       />
