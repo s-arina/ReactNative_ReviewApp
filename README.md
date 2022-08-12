@@ -38,3 +38,22 @@
 - expo r -c
 
 - <NavigationContainer> -> <Drawer.Navigator> -> <Drawer.Screen> (the screen can be a nested stack)
+- <Drawer.Navigator> can be passed a custom component to replace the header (through headerTitle)
+
+### Image Importing
+
+- import `{ Image }`
+
+Usual import:
+
+<!-- - <Image source={require('../assets/rating-1.png')} /> -->
+
+Using template literals / concatenation not allowed with require:
+
+<!-- - <Image source={require(`../assets/rating-${item.rating}.png`)} /> -->
+
+Import them in dynamically:
+
+<!-- <Image source={images.ratings[item.rating]} /> -->
+
+- getting the image from the ratings object from `Global.js` that matches the key passed in to it

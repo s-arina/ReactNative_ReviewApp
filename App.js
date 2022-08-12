@@ -1,10 +1,12 @@
 import React from 'react';
+import { Image, StyleSheet } from 'react-native';
 // fonts
 import { useFonts } from 'expo-font';
 
 // screens
 import HomeStack from './routes/HomeStack';
 import About from './screens/About';
+import Header from './shared/Header';
 
 // drawer navigation
 import { NavigationContainer } from '@react-navigation/native';
@@ -26,7 +28,13 @@ export default function App() {
   return (
     <NavigationContainer>
       {/* wrap in container */}
-      <Drawer.Navigator initialRouteName='GameZone'>
+      <Drawer.Navigator
+        initialRouteName='GameZone'
+        screenOptions={{
+          // import own custom component for header
+          headerTitle: () => <Header />,
+        }}
+      >
         <Drawer.Screen name='GameZone' component={HomeStack} />
         {/* stacks can be nested within the drawer */}
         <Drawer.Screen name='About GameZone' component={About} />

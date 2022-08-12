@@ -32,7 +32,6 @@ export default function ReviewDetails({ route }) {
 const styles = StyleSheet.create({
   rating: {
     flexDirection: 'row',
-
     justifyContent: 'center',
     paddingTop: 16,
     marginTop: 16,
