@@ -1,5 +1,13 @@
 ## Game Reviews App
 
+- Custom Fonts
+- Global Styles
+- Stack Navigation
+- Drawer Navigation
+- Image Importing
+- Custom Background / Headers
+- Modal
+
 ### Custom Fonts
 
 - import `{ useFont }`
@@ -57,3 +65,32 @@ Import them in dynamically:
 <!-- <Image source={images.ratings[item.rating]} /> -->
 
 - getting the image from the ratings object from `Global.js` that matches the key passed in to it
+
+### Custom Background / Headers
+
+Background:
+
+- import `{ DefaultTheme }`
+- customize it (applies to the whole app):
+
+  const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+  ...DefaultTheme.colors,
+  primary: 'rgb(255, 45, 85)',
+  background: 'transparent',
+  },
+  };
+
+- pass it into <NavigationContainer theme={myTheme}>
+
+Headers:
+
+- <Drawer.Navigator screenOptions={{ headerBackground: () => ( <Image source={} style={} /> ) }}
+- make every screen have the same header design
+
+### Modal
+
+- import `{ Modal }`
+- create a state for modal open or closed
+- import `{ MaterialIcons }` for open/close icons and pass appropriate onPress handlers to toggle state

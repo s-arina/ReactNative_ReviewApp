@@ -16,13 +16,11 @@ export default function ReviewDetails({ route }) {
         <Text>{item.title}</Text>
         <Text>{item.body}</Text>
         <View style={styles.rating}>
-          <Text>
-            GameZone rating:
-            <Image
-              source={images.ratings[item.rating]}
-              // getting the image from the ratings object that matches the key passed in to it
-            />
-          </Text>
+          <Text>GameZone rating:</Text>
+          <Image
+            source={images.ratings[item.rating]}
+            // getting the image from the ratings object that matches the key passed in to it
+          />
         </View>
       </Card>
     </View>

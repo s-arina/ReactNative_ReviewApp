@@ -6,9 +6,9 @@ export default function Header() {
     <View style={styles.header}>
       <Image
         source={require('../assets/heart_logo.png')}
-        style={styles.headerBackground}
+        style={styles.headerIcon}
       />
-      <Text>GameZone</Text>
+      <Text style={styles.headerTitle}>GameZone</Text>
     </View>
   );
 }
@@ -16,9 +16,16 @@ export default function Header() {
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
+    alignItems: 'center',
   },
-  headerBackground: {
+  headerTitle: {
+    fontFamily: 'PoppinsSB',
+    fontSize: 18,
+    letterSpacing: 1,
+  },
+  headerIcon: {
     width: 20,
     height: 20,
+    marginRight: 5,
   },
 });

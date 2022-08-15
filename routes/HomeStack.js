@@ -23,8 +23,8 @@ export default function HomeStack() {
       initialRouteName='Home' // first route to render on load
       screenOptions={{
         // default options for screens (styling)
-        headerTintColor: 'steelblue',
-        headerStyle: { backgroundColor: '#eee' },
+        headerTintColor: 'red',
+        headerStyle: { backgroundColor: 'transparent' },
       }}
     >
       <Stack.Screen
