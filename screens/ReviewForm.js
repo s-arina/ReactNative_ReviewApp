@@ -1,6 +1,8 @@
 import React from 'react';
-import { StyleSheet, Button, TextInput, View, Text } from 'react-native';
+import { Button, TextInput, View, Text } from 'react-native';
 import { globalStyles } from '../styles/Global.js';
+
+// import libraries
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
@@ -41,7 +43,7 @@ export default function ReviewForm({ addReview }) {
             onChangeText={formikProps.handleChange('title')}
             value={formikProps.values.title}
             // this is going to update the empty fields to be whatever the onChangeText is
-            onBlur={formikProps.handleBlur('title')}
+            // onBlur={formikProps.handleBlur('title')}
             // onBlur will trigger the error when you leave the field, more real time validation but not while the field is being  touched
           ></TextInput>
 
@@ -58,7 +60,7 @@ export default function ReviewForm({ addReview }) {
             placeholder='Write a review...'
             onChangeText={formikProps.handleChange('body')}
             value={formikProps.values.body}
-            onBlur={formikProps.handleBlur('body')}
+            // onBlur={formikProps.handleBlur('body')}
           ></TextInput>
 
           <Text style={globalStyles.errorText}>
@@ -70,7 +72,7 @@ export default function ReviewForm({ addReview }) {
             placeholder='Rating (1-5)'
             onChangeText={formikProps.handleChange('rating')}
             value={formikProps.values.rating}
-            onBlur={formikProps.handleBlur('rating')}
+            // onBlur={formikProps.handleBlur('rating')}
             keyboardType='numeric'
           ></TextInput>
 
@@ -89,5 +91,3 @@ export default function ReviewForm({ addReview }) {
     </Formik>
   );
 }
-
-const styles = StyleSheet.create({});

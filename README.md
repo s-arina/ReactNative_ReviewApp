@@ -97,7 +97,38 @@ Headers:
 
 ### Form Creation / Validation - formik and yup
 
-Two libraries to use for form creation and validation:
+Two libraries for form creation and validation:
 
 - npm install formik
 - npm install yup
+
+`ReviewForm.js` for notes.
+
+FORMIK:
+
+> > <Formik></Formik>
+
+- wrap all with <Formik> tag
+- `intialValues` for field initialization (usually empty strings)
+- `validationSchema` for custom input validation
+- `onSubmit` handler (can pass values and actions.resetForm())
+
+> > {(formikProps) => (<TextInput>)}
+
+- create fields here: <TextInput>, <Field>, etc
+- pass in `style`, `placeholder`, etc
+- `onChangeText={formikProps.handleChange('fieldName')}` onChange handler
+- `value={formikProps.values.fieldName}` setting the field input
+  > > `onBlur={formikProps.handleBlur('fieldName')}`
+- for validation errors to show when field is CLICKED AWAY from
+
+YUP:
+
+- define `ValidationSchema` with `yup.object({})` and include validations
+- pass `ValidationSchema` into <Formik validationSchema={ValidationSchema}>
+
+> > <Text>{formikProps.touched.fieldName && formikProps.errors.fieldName}</Text>
+
+- for validation errors to show only WHEN SUBMITTED
+- yup attaches an error to the property if it doesn't pass
+- `props.touched.fieldName` checks if the field was interacted with (default: false)
