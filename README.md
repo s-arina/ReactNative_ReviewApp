@@ -95,6 +95,9 @@ Headers:
 - create a state for modal open or closed
 - import `{ MaterialIcons }` for open/close icons and pass appropriate onPress handlers to toggle state
 
+### Form Creation / Validation - formik and yup
+
 Two libraries to use for form creation and validation:
 
 - npm install formik
+- npm install yup

@@ -22,6 +22,11 @@ export const globalStyles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 10,
   },
+  errorText: {
+    color: 'red',
+
+    marginBottom: 10,
+  },
 });
 
 // hard coding strings but can reference them dynamically
