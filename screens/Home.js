@@ -3,7 +3,6 @@ import {
   StyleSheet,
   View,
   Text,
-  Button,
   FlatList,
   TouchableOpacity,
   Modal,
@@ -31,19 +30,19 @@ export default function Home({ navigation }) {
     {
       title: 'Zelda, Breath of Fresh Air',
       rating: 5,
-      body: 'lorem ipsum',
+      body: `From its mysterious opening to its action-packed conclusion, The Legend of Zelda: Breath of the Wild is a revolution for Nintendo's revered series. It's both a return to form and a leap into uncharted territory, and it exceeds expectations on both fronts. The game takes designs and mechanics perfected in other games and reworks them for its own purposes to create something wholly new, but also something that still feels quintessentially like a Zelda game. It's a truly magical work of art that embodies Nintendo's unique talents, and a game that everyone should play regardless of their affinity for the series' past.`,
       key: '1',
     },
     {
       title: 'Gotta Catch Them All (again)',
       rating: 4,
-      body: 'lorem ipsum',
+      body: `Sword and Shield introduce players to the new Galar region. Inspired by the UK, this region is characterful and utterly full of personality. It has a cohesive identity that affectionately caricatures British pop culture and speech, while each town and city that make it up still manages to have its own utterly distinct look, resulting in a region that’s a playful mix of modernity and mythology. We had a niggling feeling as we wandered around the suspiciously clean cities and green rolling hills that this is potentially what some have convinced themselves the pre-EU UK once looked like. Galar is idyllic bordering on fantastical.`,
       key: '2',
     },
     {
       title: 'Not So "Final Fantasy"',
       rating: 3,
-      body: 'lorem ipsum',
+      body: `The storytelling throughout the main campaign is very enjoyable — bolstered by certain scenes that quite simply blew us away — and the additional beats only serve to enrich the experience. Square Enix could have quite easily buggered the whole thing up, but as it stands, it feels like the plot has been given the respect that it deserves. That said, the story probably won't resonate quite so well if you're new to Final Fantasy VII. There are times when the narrative relies heavily on nostalgia, presenting characters, scenes, or concepts in ways that'll seem downright weird if you're coming into this completely blind.`,
       key: '3',
     },
   ]);
@@ -122,7 +121,7 @@ const styles = StyleSheet.create({
   modalToggle: {
     marginBottom: 10,
     borderWidth: 1,
-    borderColor: '#333',
+    borderColor: 'lightgrey',
     padding: 10,
     borderRadius: 10,
     alignSelf: 'center',

@@ -24,7 +24,6 @@ export default function HomeStack() {
       screenOptions={{
         // default options for screens (styling)
         headerTintColor: 'red',
-        headerStyle: { backgroundColor: 'transparent' },
       }}
     >
       <Stack.Screen

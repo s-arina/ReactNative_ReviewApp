@@ -13,8 +13,8 @@ export default function ReviewDetails({ route }) {
   return (
     <View style={globalStyles.container}>
       <Card>
-        <Text>{item.title}</Text>
-        <Text>{item.body}</Text>
+        <Text style={globalStyles.title}>{item.title}</Text>
+        <Text style={styles.body}>{item.body}</Text>
         <View style={styles.rating}>
           <Text>GameZone rating:</Text>
           <Image
@@ -28,6 +28,13 @@ export default function ReviewDetails({ route }) {
 }
 
 const styles = StyleSheet.create({
+  body: {
+    paddingTop: 16,
+    marginTop: 16,
+    borderTopWidth: 1,
+    borderTopColor: '#eee',
+    lineHeight: 20,
+  },
   rating: {
     flexDirection: 'row',
     justifyContent: 'center',

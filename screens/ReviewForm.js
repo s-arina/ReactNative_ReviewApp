@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, TextInput, View, Text } from 'react-native';
+import { TextInput, View, Text } from 'react-native';
 import { globalStyles } from '../styles/Global.js';
+import FlatButton from '../shared/Button.js';
 
 // import libraries
 import { Formik } from 'formik';
@@ -47,15 +48,18 @@ export default function ReviewForm({ addReview }) {
             // onBlur will trigger the error when you leave the field, more real time validation but not while the field is being  touched
           ></TextInput>
 
-          <Text style={globalStyles.errorText}>
-            {formikProps.touched.title && formikProps.errors.title}
-          </Text>
+          {formikProps.touched.title && formikProps.errors.title && (
+            <Text style={globalStyles.errorText}>
+              {formikProps.touched.title && formikProps.errors.title}
+            </Text>
+          )}
           {/* yup attaches an error to the property if it doesn't pass */}
           {/* props.touched.title checks if the field was interacted with or not (default is false) */}
           {/* now the error will only show on submission */}
 
           <TextInput
-            multiline // multiline functionality
+            multiline
+            minHeight={60} // multiline functionality and add more space
             style={globalStyles.input}
             placeholder='Write a review...'
             onChangeText={formikProps.handleChange('body')}
@@ -63,9 +67,11 @@ export default function ReviewForm({ addReview }) {
             // onBlur={formikProps.handleBlur('body')}
           ></TextInput>
 
-          <Text style={globalStyles.errorText}>
-            {formikProps.touched.body && formikProps.errors.body}
-          </Text>
+          {formikProps.touched.body && formikProps.errors.body && (
+            <Text style={globalStyles.errorText}>
+              {formikProps.touched.body && formikProps.errors.body}
+            </Text>
+          )}
 
           <TextInput
             style={globalStyles.input}
@@ -76,16 +82,13 @@ export default function ReviewForm({ addReview }) {
             keyboardType='numeric'
           ></TextInput>
 
-          <Text style={globalStyles.errorText}>
-            {formikProps.touched.rating && formikProps.errors.rating}
-          </Text>
+          {formikProps.touched.rating && formikProps.errors.rating && (
+            <Text style={globalStyles.errorText}>
+              {formikProps.touched.rating && formikProps.errors.rating}
+            </Text>
+          )}
 
-          <Button
-            title='SUBMIT'
-            color='red'
-            onPress={formikProps.handleSubmit}
-            // onSubmit val are the values of the form during the time of submission
-          />
+          <FlatButton text='submit' onPress={formikProps.handleSubmit} />
         </View>
       )}
     </Formik>

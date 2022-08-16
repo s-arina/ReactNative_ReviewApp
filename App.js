@@ -26,34 +26,29 @@ export default function App() {
   }
 
   return (
-    <ImageBackground
-      source={require('./assets/game_bg.png')}
-      style={styles.headerBackground}
-    >
-      <NavigationContainer>
-        {/* <NavigationContainer theme={MyTheme}> */}
-        {/* wrap in container */}
-        <Drawer.Navigator
-          initialRouteName='GameZone'
-          screenOptions={{
-            // import own custom component for header
-            headerTitle: () => <Header />,
-            drawerActiveTintColor: 'red',
-            headerTintColor: 'red',
-            headerBackground: () => (
-              <Image
-                source={require('./assets/game_bg.png')}
-                style={styles.headerBackground}
-              />
-            ),
-          }}
-        >
-          <Drawer.Screen name='Home' component={HomeStack} />
-          {/* stacks can be nested within the drawer */}
-          <Drawer.Screen name='About GameZone' component={About} />
-        </Drawer.Navigator>
-      </NavigationContainer>
-    </ImageBackground>
+    // <NavigationContainer>
+    <NavigationContainer theme={MyTheme}>
+      {/* wrap in container */}
+      <Drawer.Navigator
+        initialRouteName='GameZone'
+        screenOptions={{
+          // import own custom component for header
+          headerTitle: () => <Header />,
+          drawerActiveTintColor: 'red',
+          headerTintColor: 'red',
+          headerBackground: () => (
+            <Image
+              source={require('./assets/game_bg.png')}
+              style={styles.headerBackground}
+            />
+          ),
+        }}
+      >
+        <Drawer.Screen name='Home' component={HomeStack} />
+        {/* stacks can be nested within the drawer */}
+        <Drawer.Screen name='About GameZone' component={About} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
 
@@ -70,6 +65,6 @@ const MyTheme = {
   colors: {
     ...DefaultTheme.colors,
     primary: 'rgb(255, 45, 85)',
-    background: 'transparent',
+    background: 'white',
   },
 };
