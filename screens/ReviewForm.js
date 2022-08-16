@@ -11,7 +11,10 @@ export default function ReviewForm({ addReview }) {
         body: '',
         rating: '',
       }}
-      onSubmit={(val) => addReview(val)}
+      onSubmit={(values, actions) => {
+        addReview(values); // submit the review
+        actions.resetForm(); // clear the form after submission (even after the modal closes)
+      }}
     >
       {(formikProps) => (
         // render the form fields

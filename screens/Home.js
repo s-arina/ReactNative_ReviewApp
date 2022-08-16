@@ -7,6 +7,8 @@ import {
   FlatList,
   TouchableOpacity,
   Modal,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
 import { globalStyles } from '../styles/Global';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -61,50 +63,54 @@ export default function Home({ navigation }) {
   };
 
   return (
-    <View style={globalStyles.container}>
-      {/* <Button title='goto review' onPress={pressHandler} /> */}
+    <TouchableWithoutFeedback // wrap code to dismiss keyboard after submission
+      onPress={() => Keyboard.dismiss()}
+    >
+      <View style={globalStyles.container}>
+        {/* <Button title='goto review' onPress={pressHandler} /> */}
 
-      {/* MODAL */}
-      {/* import modal and set its visibility to state and give it animation */}
-      <Modal visible={modalOpen} animationType='slide'>
-        <View style={styles.modalContent}>
-          <MaterialIcons
-            name='close'
-            size={24}
-            style={{ ...styles.modalToggle, ...styles.modalClose }} // pass multiple styles
-            onPress={() => setModalOpen(false)}
-          />
-          <Text style={globalStyles.title}>Add a Review</Text>
-          {/* addReview function passed as props */}
-          <ReviewForm addReview={addReview} />
-        </View>
-      </Modal>
+        {/* MODAL */}
+        {/* import modal and set its visibility to state and give it animation */}
+        <Modal visible={modalOpen} animationType='slide'>
+          <View style={styles.modalContent}>
+            <MaterialIcons
+              name='close'
+              size={24}
+              style={{ ...styles.modalToggle, ...styles.modalClose }} // pass multiple styles
+              onPress={() => setModalOpen(false)}
+            />
+            <Text style={globalStyles.title}>Add a Review</Text>
+            {/* addReview function passed as props */}
+            <ReviewForm addReview={addReview} />
+          </View>
+        </Modal>
 
-      {/* OPEN MODAL ICON */}
-      <MaterialIcons
-        name='add'
-        size={24}
-        style={styles.modalToggle}
-        onPress={() => setModalOpen(true)}
-      />
+        {/* OPEN MODAL ICON */}
+        <MaterialIcons
+          name='add'
+          size={24}
+          style={styles.modalToggle}
+          onPress={() => setModalOpen(true)}
+        />
 
-      {/* REVIEWS */}
-      <FlatList
-        data={reviews} // pass state
-        renderItem={(
-          { item } // destructure each item to render out
-        ) => (
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Review Details', item)} // navigate to details page while passing in the items info
-          >
-            {/* wrap the info in Card component, pass the info down as props.children */}
-            <Card>
-              <Text style={globalStyles.title}>{item.title}</Text>
-            </Card>
-          </TouchableOpacity>
-        )}
-      />
-    </View>
+        {/* REVIEWS */}
+        <FlatList
+          data={reviews} // pass state
+          renderItem={(
+            { item } // destructure each item to render out
+          ) => (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Review Details', item)} // navigate to details page while passing in the items info
+            >
+              {/* wrap the info in Card component, pass the info down as props.children */}
+              <Card>
+                <Text style={globalStyles.title}>{item.title}</Text>
+              </Card>
+            </TouchableOpacity>
+          )}
+        />
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 
