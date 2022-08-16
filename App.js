@@ -38,9 +38,6 @@ export default function App() {
           screenOptions={{
             // import own custom component for header
             headerTitle: () => <Header />,
-            // headerStyle: {
-            //   backgroundColor: 'transparent',
-            // },
             drawerActiveTintColor: 'red',
             headerTintColor: 'red',
             headerBackground: () => (

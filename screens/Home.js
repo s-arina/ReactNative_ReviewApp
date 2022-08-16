@@ -9,8 +9,11 @@ import {
   Modal,
 } from 'react-native';
 import { globalStyles } from '../styles/Global';
-import Card from '../shared/Card';
 import { MaterialIcons } from '@expo/vector-icons';
+import Card from '../shared/Card';
+import ReviewForm from './ReviewForm';
+import { v4 as uuid } from 'uuid';
+import 'react-native-get-random-values';
 
 export default function Home({ navigation }) {
   // destruct navigation prop
@@ -43,32 +46,49 @@ export default function Home({ navigation }) {
     },
   ]);
 
+  // modal state
   const [modalOpen, setModalOpen] = useState(false);
+
+  // add new review, pass it down to form component
+  const addReview = (review) => {
+    review.key = uuid();
+    setReviews((currentReviews) => {
+      return [review, ...currentReviews];
+      // new review should appear at the top, so pass it before the rest of the reviews
+    });
+    setModalOpen(false);
+    // close the modal after submission
+  };
 
   return (
     <View style={globalStyles.container}>
       {/* <Button title='goto review' onPress={pressHandler} /> */}
+
+      {/* MODAL */}
       {/* import modal and set its visibility to state and give it animation */}
       <Modal visible={modalOpen} animationType='slide'>
         <View style={styles.modalContent}>
-          {/* close icon that changes modal state to false */}
           <MaterialIcons
             name='close'
             size={24}
-            style={{ ...styles.modalToggle, ...styles.modalClose }}
+            style={{ ...styles.modalToggle, ...styles.modalClose }} // pass multiple styles
             onPress={() => setModalOpen(false)}
           />
-
-          <Text>Modal text</Text>
+          <Text style={globalStyles.title}>Add a Review</Text>
+          {/* addReview function passed as props */}
+          <ReviewForm addReview={addReview} />
         </View>
       </Modal>
-      {/* open icon that changes modal state to false */}
+
+      {/* OPEN MODAL ICON */}
       <MaterialIcons
         name='add'
         size={24}
         style={styles.modalToggle}
         onPress={() => setModalOpen(true)}
       />
+
+      {/* REVIEWS */}
       <FlatList
         data={reviews} // pass state
         renderItem={(
@@ -77,6 +97,7 @@ export default function Home({ navigation }) {
           <TouchableOpacity
             onPress={() => navigation.navigate('Review Details', item)} // navigate to details page while passing in the items info
           >
+            {/* wrap the info in Card component, pass the info down as props.children */}
             <Card>
               <Text style={globalStyles.title}>{item.title}</Text>
             </Card>
@@ -102,5 +123,6 @@ const styles = StyleSheet.create({
   },
   modalClose: {
     marginTop: 20,
+    marginBottom: 40,
   },
 });
